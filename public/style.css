@@ -1,0 +1,102 @@
+html {
+  width: 100%;
+}
+
+body {
+  width: 100%;
+  margin: 0px;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #112c4e;
+  width: 95%;
+  margin: 0;
+  padding: 0 2.5%;
+}
+
+.title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2.5em;
+  padding: 0 20px 0 20px;
+  color: white;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin: 0;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-preferred-size: 400px;
+      flex-basis: 400px;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul.nav-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-bottom: 0px;
+  -ms-flex-preferred-size: 400px;
+      flex-basis: 400px;
+  margin-top: 0;
+}
+
+ul.nav-links a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+li {
+  list-style: none;
+  padding: 20px 10px 5px 10px;
+  color: white;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+li:hover, h1:hover {
+  background: #03070c;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+}
+
+table {
+  width: 80%;
+  margin-left: 1.5em;
+}
+
+thead {
+  text-align: left;
+}
+/*# sourceMappingURL=style.css.map */

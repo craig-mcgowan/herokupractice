@@ -1,0 +1,52 @@
+
+<% 
+<!-- https://www.sitepoint.com/sort-an-array-of-objects-in-javascript/ -->
+function compare(a, b) {
+  const project1 = a.jobId
+  const project2 = b.jobId
+  return project1>project2? 1 : -1
+}
+  projects.sort(compare)
+%>
+
+<%- include("../partials/head.ejs") %>
+<body>
+  <%- include("../partials/header.ejs") %>
+  <h2>Project Log</h2>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Project #</th>
+        <th>Project Name</th>
+        <th>Location</th>
+        <th>Stage</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(project of projects) { %>
+        <% let {jobId, idNum, name, streetAddress, stage, isActive, city, state} = project 
+        let address =`${streetAddress}, ${city}, ${state}`
+        %>
+      <a href="/<%= idNum %>"><tr class=<%= jobId.toString() %>>
+        <td><%= idNum %></td>
+        <td><%= name %></td>
+        <td><%= address %></td>
+        <td><%= stage %></td>
+        <td><%= isActive? "Active": "Inactive" %></td>
+      </tr></a>
+        
+
+      <% } %>
+      <tr>
+
+      </tr>
+    </tbody>
+    
+  </table>
+
+  
+
+  
+</body>

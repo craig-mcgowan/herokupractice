@@ -1,38 +1,18 @@
-require("dotenv").config();
+
 
 //___________________
 //Dependencies
 //___________________
-const express = require("express");
+require("dotenv").config(); // load env vars
+const express = require("express"); // import express
+const morgan = require("morgan"); // import morgan
 const methodOverride = require("method-override");
-const mongoose = require("mongoose");
+const ProjectRouter = require("./controllers/project");
+
+/*----------------------------------
+   APP Object
+----------------------------------*/
 const app = express();
-const db = mongoose.connection;
-//___________________
-//Port
-//___________________
-// Allow use of Heroku's port or your own local port, depending on the environment
-const PORT = process.env.PORT || 3000;
-
-//___________________
-//Database
-//___________________
-// How to connect to the database either via heroku or locally
-const MONGODB_URI = process.env.MONGODB_URI;
-
-// Connect to Mongo &
-// Fix Depreciation Warnings from Mongoose
-// May or may not need these depending on your Mongoose version
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-// Error / success
-db.on("error", (err) => console.log(err.message + " is mongod not running?"));
-db.on("connected", () => console.log("mongod connected: ", MONGODB_URI));
-db.on("disconnected", () => console.log("mongod disconnected"));
-
 //___________________
 //Middleware
 //___________________
@@ -42,20 +22,25 @@ app.use(express.static("public"));
 
 // populates req.body with parsed info from forms - if no data from forms will return an empty object {}
 app.use(express.urlencoded({ extended: false })); // extended: false - does not allow nested objects in query strings
-app.use(express.json()); // returns middleware that only parses JSON - may or may not need it depending on your project
+app.use(express.json()); // returns middleware that only parses JSON 
 
 //use method override
 app.use(methodOverride("_method")); // allow POST, PUT and DELETE from a form
 
+app.use(morgan('tiny'));
+
+app.use("/projects", ProjectRouter)
 //___________________
 // Routes
 //___________________
 //localhost:3000
+//HOME
 app.get("/", (req, res) => {
-  res.render("home.ejs")
+  res.render("project/home.ejs")
 });
 
 //___________________
 //Listener
 //___________________
+const PORT = process.env.PORT
 app.listen(PORT, () => console.log("express is listening on:", PORT));
