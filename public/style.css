@@ -99,4 +99,14 @@ table {
 thead {
   text-align: left;
 }
+
+td.name {
+  text-decoration: underline;
+  color: blue;
+}
+
+td.name:hover {
+  cursor: pointer;
+  color: #03070c;
+}
 /*# sourceMappingURL=style.css.map */

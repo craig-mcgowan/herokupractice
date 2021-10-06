@@ -1,0 +1,13 @@
+<% const { year, jobNum, name, client, stage, sqFt, isActive, suite, streetAddress, city, state, zipCode, projectValue, bidDueDate, image, jobId} = project 
+console.log(project)
+%> 
+<main>
+<article>
+  <h2 class="project-title"><%= name %></h2>
+  <% if(image) {%><img src=<% image %> alt=<%= name %>> <% } %>
+  <p class="jobId"> <%=jobId %></p>
+  <p class="client"><%= client %></p>
+  
+
+</article>
+</main>

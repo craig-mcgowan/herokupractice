@@ -12,6 +12,7 @@ function compare(a, b) {
 <%- include("../partials/head.ejs") %>
 <body>
   <%- include("../partials/header.ejs") %>
+  <main>
   <h2>Project Log</h2>
   
   <table>
@@ -26,16 +27,24 @@ function compare(a, b) {
     </thead>
     <tbody>
       <% for(project of projects) { %>
-        <% let {jobId, idNum, name, streetAddress, stage, isActive, city, state} = project 
-        let address =`${streetAddress}, ${city}, ${state}`
+        <% let {jobId, jobNum, name, stage, isActive, fullAddress} = project 
+        
         %>
-      <a href="/<%= idNum %>"><tr class=<%= jobId.toString() %>>
-        <td><%= idNum %></td>
-        <td><%= name %></td>
-        <td><%= address %></td>
-        <td><%= stage %></td>
-        <td><%= isActive? "Active": "Inactive" %></td>
-      </tr></a>
+          <tr class=<%= jobId.toString() %>>
+          <td><%= jobId %></td>
+          <td class="name"
+            hx-get = "/projects/<%=project._id %>"
+            hx-target= "main"
+            hx-swap=innerHTML
+          >
+            <%= name %>
+          </td>
+
+          <td><%= fullAddress %></td>
+          <td><%= stage %></td>
+          <td><%= isActive? "Active": "Inactive" %></td>
+        </tr>
+
         
 
       <% } %>
@@ -45,7 +54,7 @@ function compare(a, b) {
     </tbody>
     
   </table>
-
+  </main>
   
 
   

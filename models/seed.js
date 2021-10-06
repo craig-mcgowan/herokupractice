@@ -7,17 +7,21 @@ const Project = require("./project");
 ///////////////////////////////////////////
 // Seed Code
 ////////////////////////////////////////////
-const setIdNum = (arr) => {
+const computeProperties = (arr) => {
   for (object of arr) {
     let year = object.year.toString().slice(2)
-    let jobId = object.jobId.toString()
-    while (jobId.length < 3) jobId = "0" + jobId
-    let idNum = year + "-" + jobId
-    object.idNum = idNum
+    let jobNum = object.jobNum.toString()
+    while (jobNum.length < 3) jobNum = "0" + jobNum
+    let jobId = year + "-" + jobNum
+    
+    let fullAddress = `${object.streetAddress}, ${object.city}, ${object.state} ${object.zipCode}`;
+    object.jobId = jobId
+    object.fullAddress = fullAddress
   }
   
   
 }
+
 
 
 // Make sure code is not run till connected
@@ -28,7 +32,7 @@ mongoose.connection.on("open", () => {
   const startProjects = [
     {
       year: 2021,
-      jobId: 001,
+      jobNum: 001,
       name: "8th Floor Demo",
       client: "ABC Realty",
       stage: "Construction",
@@ -41,11 +45,12 @@ mongoose.connection.on("open", () => {
       zipCode: "19102",
       projectValue: 132582,
       image: "",
+      org: "ABC Construction"
 
     },
     {
       year: 2021,
-      jobId: 002,
+      jobNum: 002,
       name: "Placeholder & Placeholder Law Expansion",
       client: "P&P Associates",
       stage: "Bidding",
@@ -58,11 +63,12 @@ mongoose.connection.on("open", () => {
       zipCode: "59101",
       projectValue: 59400,
       image: "",
+      org: "ABC Construction"
 
     },
     {
       year: 2021,
-      jobId: 003,
+      jobNum: 003,
       name: "Amenity Center",
       client: "XYZ Managment",
       stage: "Preconstruction",
@@ -75,10 +81,10 @@ mongoose.connection.on("open", () => {
       zipCode: "60007",
       projectValue: 1800000,
       image: "",
-
+      org: "ABC Construction",
     },
   ];
-  setIdNum(startProjects)
+  computeProperties(startProjects)
   // Delete all projects
   Project.remove({}, (err, data) => {
     // Seed Starter Projects

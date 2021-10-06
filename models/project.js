@@ -8,23 +8,24 @@ const mongoose = require("./connection");
 
 const { Schema, model } = mongoose;
 const projectSchema = new Schema({
-  year: { type: Number },
-  jobId: {type: Number},
-  name: {type: String},
-  client: {type: String},
-  stage: {type: String},
-  sqFt: {type: Number},
-  isActive: {type: Boolean},
-  suite: {type: String},
-  streetAddress: {type: String},
-  city: {type: String},
-  state: {type: String},
-  zipCode: {type: String},
-  projectValue: {type: Number},
-  bidDueDate: { type: Date },
-  image: { type: String },
-  idNum: { type: String }
-  
+  year: Number,
+  jobNum:  Number,
+  name:  String,
+  client:  String,
+  stage:  String,
+  sqFt:  Number,
+  isActive:  Boolean,
+  suite:  String,
+  streetAddress:  String,
+  city:  String,
+  state:  String,
+  zipCode:  String,
+  projectValue:  Number,
+  bidDueDate: Date,
+  image: String,
+  jobId: String,
+  fullAddress:  String,
+  org: String
 });
 
 

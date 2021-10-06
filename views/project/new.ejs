@@ -1,0 +1,57 @@
+<main>
+  <h2>New Project</h2>
+  <form action="/projects" method="POST">
+  <fieldset>
+    <legend>Add Project Details </legend>
+    <label>Project Name: 
+      <input type="text" name="name" required>
+    </label>
+    <label>Year: 
+      <input type="year" name="year" value=<%= new Date().getFullYear() %> required>
+    </label>
+    <label> Job Number 
+      <input required type="number" name="jobNum" value=<%=nextProjectNum %>>
+    </label>
+
+    <label> Client:  
+      <input type="text" name="client">
+    </label>
+
+    <label> Square Feet:  
+      <input type="text" name="sqFt">
+    </label>
+
+    <label> Project Stage:  
+      <input list="project-stages" name="stage">
+    <datalist id="project-stages">
+      <option value="Construction">
+      <option value="Pre-Construction">
+      <option value="Bidding">
+      <option value="Post-Construction">
+    </datalist>
+    </label>
+
+    <label> :  
+      $<input type="number" name="projectValue">
+    </label>
+    
+    <label> Project Value:  
+      $<input type="number" name="projectValue">
+    </label>
+    
+    <label> Project Value:  
+      $<input type="number" name="projectValue">
+    </label>
+    
+    <label> Project Value:  
+      $<input type="number" name="projectValue">
+    </label>
+
+    
+
+    <input type="submit" value="Add to Project Directory">
+  </fieldset>
+  </form>
+
+
+</main>
