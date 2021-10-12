@@ -1,57 +1,92 @@
-<main>
-  <h2>New Project</h2>
-  <form action="/projects" method="POST">
-  <fieldset>
-    <legend>Add Project Details </legend>
-    <label>Project Name: 
-      <input type="text" name="name" required>
-    </label>
-    <label>Year: 
-      <input type="year" name="year" value=<%= new Date().getFullYear() %> required>
-    </label>
-    <label> Job Number 
-      <input required type="number" name="jobNum" value=<%=nextProjectNum %>>
-    </label>
 
-    <label> Client:  
-      <input type="text" name="client">
-    </label>
+<%- include("../partials/head.ejs") %>
+<body>
+  <%- include("../partials/header.ejs") %>
 
-    <label> Square Feet:  
-      <input type="text" name="sqFt">
-    </label>
-
-    <label> Project Stage:  
-      <input list="project-stages" name="stage">
-    <datalist id="project-stages">
-      <option value="Construction">
-      <option value="Pre-Construction">
-      <option value="Bidding">
-      <option value="Post-Construction">
-    </datalist>
-    </label>
-
-    <label> :  
-      $<input type="number" name="projectValue">
-    </label>
-    
-    <label> Project Value:  
-      $<input type="number" name="projectValue">
-    </label>
-    
-    <label> Project Value:  
-      $<input type="number" name="projectValue">
-    </label>
-    
-    <label> Project Value:  
-      $<input type="number" name="projectValue">
-    </label>
+  <main class= "new-project">
+    <h2>New Project</h2>
+    <form class="project-info" action="/projects" method="POST">
 
     
+    <fieldset class= "project-id">      
+        
+      <legend>Project Identifiers </legend>
+      <div class="job-id-fields">
+      <label>Project Name: 
+        <input type="text" name="name" required>
+      </label>
+      <label>Year: 
+        <input type="number" name="year" value=<%= new Date().getFullYear() %> required>
+      </label>
+      <label> Job Number:  
+        <input required type="number" name="jobNum" value=<%=nextProjectNum %>>
+      </label>
+      </div>
+      <div class="active-btn">
+        <label for="active-checkbox" class="toggle-btn"> Active 
+        </label>
+        <input type="checkbox" name="isActive" id="active-checkbox" class="hidden-checkbox">
+      </div>
+    </fieldset>
+    <fieldset class="location">
+      <legend>Location</legend>
 
-    <input type="submit" value="Add to Project Directory">
-  </fieldset>
-  </form>
+      <label> Client:  
+        <input type="text" name="client">
+      </label>
+      
+      <label> Street Address:  
+        <input type="string" name="streetAddress">
+      </label>
+
+      <label> Suite or Floor:  
+        <input type="string" name="suite">
+      </label>
+      
+      <label> City:  
+        <input type="string"" name="city">
+      </label>
+      
+      <label> State:  
+        <input type="string" name="state">
+      </label>
+      
+      <label> Zip Code:  
+        <input type="string"" name="zipCode">
+      </label>
+
+      </fieldset>
+      
+    <fieldset>
+      <legend>Additional Details</legend>
+      <label> Square Feet:  
+        <input type="text" name="sqFt">
+      </label>
+
+      <label> Project Stage:  
+        <input list="project-stages" name="stage">
+      <datalist id="project-stages">
+        <option value="Construction">
+        <option value="Pre-Construction">
+        <option value="Bidding">
+        <option value="Post-Construction">
+      </datalist>
+      </label>
+
+      <label> Project Value:  
+        <input type="number" name="projectValue">
+      </label>
+
+      <label> Image URL: 
+        <input type="string" name="image">
+      </label>
+    </fieldset>
+      
+
+      <input class="submit-btn" type="submit" value="Add to Project Directory">
+  
+    </form>
 
 
-</main>
+  </main>
+</body>

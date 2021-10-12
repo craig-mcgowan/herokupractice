@@ -1,0 +1,24 @@
+<%- include("../partials/head.ejs") %>
+<body>
+  <%- include("../partials/header.ejs") %>
+  <main>
+    <div>
+      <form action="/user/signup" method="POST">
+      <fieldset>
+        <legend>Add a New User</legend>
+        <label>Organization:
+          <input type="text" name="org" required > 
+        </label>
+        <label>Username:
+          <input type="text" name="username" required > 
+        </label>
+        <label >Password:
+          <input type="password" name="password" required>
+        </label>
+        <input type="submit" value="Create Account">
+      </fieldset>
+      </form>
+
+    </div>
+  </main>
+</body>

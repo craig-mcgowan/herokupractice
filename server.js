@@ -1,7 +1,6 @@
-
-//___________________
-//Dependencies
-//___________________
+/*----------------------------------
+   Dependencies
+----------------------------------*/
 const express = require("express"); // import express
 const middleware = require("./utils/middleware"); 
 

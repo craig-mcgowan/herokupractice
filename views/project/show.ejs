@@ -1,13 +1,79 @@
 <% const { year, jobNum, name, client, stage, sqFt, isActive, suite, streetAddress, city, state, zipCode, projectValue, bidDueDate, image, jobId} = project 
 console.log(project)
 %> 
-<main>
-<article>
-  <h2 class="project-title"><%= name %></h2>
-  <% if(image) {%><img src=<% image %> alt=<%= name %>> <% } %>
-  <p class="jobId"> <%=jobId %></p>
-  <p class="client"><%= client %></p>
-  
 
-</article>
+<%- include("../partials/head.ejs") %>
+<body>
+  <%- include("../partials/header.ejs") %>
+  <main>
+  <button
+    hx-get="/projects/<%=project._id%>/edit"
+    hx-target="main"
+    hx-trigger="click"
+    hx-swap="innerHTML"
+    hx-push-url="true"
+    >Edit Entry</button>
+  <form action="/projects/<%= project._id %>?_method=DELETE" method="POST">
+    <input type="submit" value="Delete Project" class="delete-btn">
+  </form>
+  
+  <article class="show">
+    <h2><%= name %></h2>
+
+      <label for="active-checkbox" class="toggle-btn"> Active </label>
+        <input type="checkbox" name="isActive" id="active-checkbox" class="hidden-checkbox" disabled>
+    
+    <fieldset>
+      <legend>Project Identifiers </legend>
+      <label>Year: <%= year %> </label>
+      <label> Job Number: <%= jobNum %>
+      </label>
+    </fieldset>
+    <fieldset>
+      <legend>Location</legend>
+
+      <label> Client:  
+        <%=client%>
+      </label>
+      
+      <label> Street Address:  
+        <%=streetAddress%>
+      </label>
+
+      <label> Suite or Floor:  
+        <%=suite%>
+      </label>
+      
+      <label> City:  
+        <%=city%>
+      </label>
+      
+      <label> State:  
+        <%=state%>
+      </label>
+      
+      <label> Zip Code:  
+        <%=zipCode%>
+      </label>
+
+      </fieldset>
+      
+    <fieldset>
+      <legend>Additional Details</legend>
+      <label> Square Feet:  
+        <%=sqFt%>
+      </label>
+
+      <label> Project Stage:  
+        <%=stage%>
+      </label>
+
+      <label> Project Value:  
+        <%=projectValue%>
+      </label>
+
+    </fieldset>
+  </article>
+  <img src=<%= image %> alt="">
 </main>
+</body>

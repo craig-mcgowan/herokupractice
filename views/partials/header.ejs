@@ -1,11 +1,47 @@
 <header>
-  <a href="/"><h1 class="title">Construction Hub</h1></a>
+  <h1 class="title">BuildHub</h1>
 
   <nav>
     <ul class="nav-links">
-      <a href="/projects"><li class="index-link">Project List</li></a>
-      <a href="/projects/new"><li class="new-link">Create Project</li></a>
-      <a href="/forms"><li class="forms-link">Forms</li></a>
+      <span class="project-links hidden">
+        <li class="index-link"
+              hx-get = "/projects"
+              hx-target= "main"
+              hx-swap= "innerHTML"
+              hx-push-url="true"
+              hx-select="main">
+          Project List
+        </li>
+        <li class="new-link"
+          hx-get = "/projects/new"
+          hx-target= "main"
+          hx-swap="innerHTML"
+          hx-push-url="true"
+          hx-select="main">
+            Create Project
+        </li>
+        <a href="/user/logout"><li class = "logout">
+            Log Out
+        </li></a>
+      </span>
+      <span class = "login-links">
+        <li class="login-link"
+          hx-get= "/user/login"
+          hx-target="main"
+          hx-swap= "innerHTML"
+          hx-push-url="true"
+          hx-select="main">
+          Login
+        </li>
+        <li class="signup-link"
+          hx-get= "/user/signup"
+          hx-target="main"
+          hx-swap= "innerHTML"
+          hx-push-url="true"
+          hx-select="main">
+          Sign up
+        </li>
+      </span>
     </ul>
 </nav>
 </header>

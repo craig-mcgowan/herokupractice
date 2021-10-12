@@ -6,10 +6,13 @@ function compare(a, b) {
   const project2 = b.jobId
   return project1>project2? 1 : -1
 }
-  projects.sort(compare)
+projects.sort(compare)
 %>
-
 <%- include("../partials/head.ejs") %>
+
+
+
+
 <body>
   <%- include("../partials/header.ejs") %>
   <main>
@@ -18,6 +21,7 @@ function compare(a, b) {
   <table>
     <thead>
       <tr>
+        <th> </th>
         <th>Project #</th>
         <th>Project Name</th>
         <th>Location</th>
@@ -27,15 +31,19 @@ function compare(a, b) {
     </thead>
     <tbody>
       <% for(project of projects) { %>
-        <% let {jobId, jobNum, name, stage, isActive, fullAddress} = project 
-        
+        <%
+          let {jobId, jobNum, name, stage, isActive, fullAddress} = project 
         %>
+          
           <tr class=<%= jobId.toString() %>>
+          <td><input type="checkbox"></td>
           <td><%= jobId %></td>
           <td class="name"
             hx-get = "/projects/<%=project._id %>"
             hx-target= "main"
-            hx-swap=innerHTML
+            hx-swap= "innerHTML"
+            hx-push-url= "true"
+            hx-select= "main"
           >
             <%= name %>
           </td>
@@ -43,8 +51,9 @@ function compare(a, b) {
           <td><%= fullAddress %></td>
           <td><%= stage %></td>
           <td><%= isActive? "Active": "Inactive" %></td>
+          <td class="options"><button class=expand-opt>...</button></td>
         </tr>
-
+        
         
 
       <% } %>

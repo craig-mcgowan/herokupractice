@@ -7,21 +7,6 @@ const Project = require("./project");
 ///////////////////////////////////////////
 // Seed Code
 ////////////////////////////////////////////
-const computeProperties = (arr) => {
-  for (object of arr) {
-    let year = object.year.toString().slice(2)
-    let jobNum = object.jobNum.toString()
-    while (jobNum.length < 3) jobNum = "0" + jobNum
-    let jobId = year + "-" + jobNum
-    
-    let fullAddress = `${object.streetAddress}, ${object.city}, ${object.state} ${object.zipCode}`;
-    object.jobId = jobId
-    object.fullAddress = fullAddress
-  }
-  
-  
-}
-
 
 
 // Make sure code is not run till connected
@@ -84,7 +69,7 @@ mongoose.connection.on("open", () => {
       org: "ABC Construction",
     },
   ];
-  computeProperties(startProjects)
+
   // Delete all projects
   Project.remove({}, (err, data) => {
     // Seed Starter Projects

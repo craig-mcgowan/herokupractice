@@ -11,7 +11,7 @@ const UserRouter = require("../controllers/user")
 const HomeRouter = require("../controllers/home")
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
-const Mongostore = ("connect-mongo")
+
 
 /*----------------------------------
    Middleware Label
@@ -26,16 +26,16 @@ const middleware = (app) => {
   //use method override
   app.use(methodOverride("_method")); // allow POST, PUT and DELETE from a form
   app.use(morgan("tiny"));
-  // app.use(
-  //   session({
-  //     secret: process.env.SECRET,
-  //     store: MongoStore.create({ mongoURL: process.env.DATABASE_URL }),
-  //     saveUninitialized: true,
-  //     resave: false,
-  //   })
-  // )
+  app.use(
+    session({
+      secret: process.env.SECRET,
+      store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
+      saveUninitialized: true,
+      resave: false,
+    })
+  );
   app.use("/projects", ProjectRouter);
-  // app.use("/user", UserRouter)
+  app.use("/user", UserRouter)
   app.use("/", HomeRouter)
 }
 
