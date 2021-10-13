@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-# ringo-project2
-
->>>>>>> refs/remotes/origin/main
 # BuildHub
 A construction project tracking web app by Craig McGowan
 

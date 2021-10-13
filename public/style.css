@@ -186,6 +186,8 @@ main.index-page thead {
   background-color: #03070c;
   color: white;
   font-family: 'Source Sans Pro', sans-serif;
+  border: solid;
+  border-color: #03070c;
 }
 
 main.index-page td.name {
@@ -196,6 +198,18 @@ main.index-page td.name {
 main.index-page td.name:hover {
   cursor: pointer;
   color: #03070c;
+}
+
+main.index-page th {
+  border: solid;
+  border-color: #03070c;
+  margin: 5px 0;
+}
+
+main.index-page tr {
+  border: solid;
+  border-width: 1px;
+  border-color: gray;
 }
 
 /*---------------------------------------
