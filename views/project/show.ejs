@@ -1,0 +1,90 @@
+<% const { year, jobNum, name, client, stage, sqFt, isActive, suite, streetAddress, city, state, zipCode, projectValue, bidDueDate, image, jobId} = project 
+console.log(project)
+%> 
+
+<%- include("../partials/head.ejs") %>
+<body>
+  <div class="project-bg">
+    <%- include("../partials/header.ejs") %>
+    <main class="show-page">
+      <div class="title-btn-container">
+        <div class="title-container"><h2><%= name %></h2></div>
+        <div class="btn-container">
+          <button class= "edit-btn"
+            hx-get="/projects/<%=project._id%>/edit"
+            hx-target="main"
+            hx-trigger="click"
+            hx-swap="outerHTML"
+            hx-push-url="true"
+            hx-select="main"
+            >Edit Entry</button>
+          <form action="/projects/<%= project._id %>?_method=DELETE" method="POST">
+            <input type="submit" value="Delete Project" class="delete-btn">
+          </form>
+        </div>
+
+      </div>
+      <article class="show">
+        
+        <div class="fields">
+          <fieldset>
+            <legend>Project Identifiers </legend>
+            <div class="job-id-fields">
+              <label><span>Name: </span> <%= name %></label>
+              <label><span>Year: </span> <%= year %> </label>
+              <label> <span>Job Number: </span> <%= jobNum %> </label>
+            </div>
+            <div class="active-btn">
+              <button class="toggle-btn <% if(isActive) {%> active <%}%>" disabled> <%= isActive ? "Active" : "Inactive" %></button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Location</legend>
+
+            <label> <span>Client: </span>  
+              <%= client %>
+            </label>
+            
+            <label> <span>Street Address: </span>
+              <%=streetAddress%>
+            </label>
+
+            <label> <span>Suite or Floor: </span>  
+              <%=suite%>
+            </label>
+            
+            <label> <span>City: </span>  
+              <%=city%>
+            </label>
+            
+            <label> <span>State:</span>  
+              <%=state%>
+            </label>
+            
+            <label> <span>Zip Code: </span>  
+              <%=zipCode%>
+            </label>
+
+            </fieldset>
+            
+          <fieldset>
+            <legend>Additional Details</legend>
+            <label> <span>Square Feet: </span>  
+              <%=sqFt%>
+            </label>
+
+            <label> <span>Project Stage: </span>  
+              <%=stage%>
+            </label>
+
+            <label> <span>Project Value: </span>  
+              <%=projectValue%>
+            </label>
+          </fieldset>
+        </div>
+        <img src=<%= image %> alt="">
+      </article>
+
+    </main>
+  </div>
+</body>

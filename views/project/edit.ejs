@@ -1,0 +1,92 @@
+<%- include("../partials/head.ejs") %>
+
+<% const { year, jobNum, name, client, stage, sqFt, isActive, suite, streetAddress, city, state, zipCode, projectValue, bidDueDate, image, jobId} = project 
+console.log('project._id:', project._id)
+%> 
+<body>
+  <%- include("../partials/header.ejs") %>
+  <div class="project-bg">
+    <main class="edit-project">
+      <h2><%= name %></h2>
+      <form action="/projects/<%= project._id %>?_method=PUT" method="POST">
+
+      
+      <fieldset> 
+        
+        <legend>Project Identifiers </legend>
+        <label>Project Name: 
+          <input type="text" name="name" value = "<%=name%>" required>
+        </label>
+        <label>Year: 
+          <input type="number" name="year" value=<%= year %> required>
+        </label>
+        <label> Job Number: 
+          <input required type="number" name="jobNum" value="<%= jobNum %>">
+        </label>
+        <label for="active-checkbox" class= <% if(isActive) { %> 
+            "toggle-btn active "<% }else { %> "toggle-btn" <% } %> > 
+          Active 
+        </label>
+        <input type="checkbox" name="isActive" id="active-checkbox" class="hidden-checkbox" <% if (isActive) { %> checked <% } %> >
+      </fieldset>
+      <fieldset class = "location">
+        <legend>Location</legend>
+
+        <label> Client:  
+          <input type="text" name="client" value="<%=client%>">
+        </label>
+        
+        <label> Street Address:  
+          <input type="string" name="streetAddress" value="<%=streetAddress%>">
+        </label>
+
+        <label> Suite or Floor:  
+          <input type="string" name="suite" value="<%=suite%>">
+        </label>
+        
+        <label> City:  
+          <input type="string"" name="city" value="<%=city%>">
+        </label>
+        
+        <label> State:  
+          <input type="string" name="state" value="<%=state%>">
+        </label>
+        
+        <label> Zip Code:  
+          <input type="string"" name="zipCode" value=<%=zipCode%>>
+        </label>
+
+        </fieldset>
+        
+      <fieldset class="additional-details">
+        <legend>Additional Details</legend>
+        <label> Square Feet:  
+          <input type="text" name="sqFt" value=<%=sqFt%>>
+        </label>
+
+        <label> Project Stage:  
+          <input list="project-stages" name="stage" value=<%=stage%>>
+        <datalist id="project-stages">
+          <option value="Construction">
+          <option value="Pre-Construction">
+          <option value="Bidding">
+          <option value="Post-Construction">
+        </datalist>
+        </label>
+
+        <label> Project Value:  
+          <input type="number" name="projectValue" value=<%=projectValue%>>
+        </label>
+
+        <label> Image URL: 
+          <input type="text" name="image" value=<%=image%> >
+        </label>
+      </fieldset>
+        
+        <input class="submit-btn" type="submit" value="Update Project">
+    
+      </form>
+
+    </main>
+  </div>
+</body>
