@@ -9,7 +9,6 @@ const middleware = require("./utils/middleware");
    APP Object
 ----------------------------------*/
 const app = express();
-
 middleware(app)
 
 //___________________
