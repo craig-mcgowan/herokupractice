@@ -1,10 +1,11 @@
 <%- include("../partials/head.ejs") %>
 <body>
   <%- include("../partials/header.ejs") %>
-  <main>
+  <div class="background">
+  <main class="signup-page">
     <div>
-      <form action="/user/signup" method="POST">
-      <fieldset>
+      <form class="signup-form" action="/user/signup" method="POST">
+      <fieldset class="signup-fieldset">
         <legend>Add a New User</legend>
         <label>Organization:
           <input type="text" name="org" required > 
@@ -15,10 +16,12 @@
         <label >Password:
           <input type="password" name="password" required>
         </label>
-        <input type="submit" value="Create Account">
+        <input class="btn-signup" type="submit" value="Create Account">
       </fieldset>
       </form>
 
     </div>
+  </div>
+  
   </main>
 </body>

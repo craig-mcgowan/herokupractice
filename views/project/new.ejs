@@ -2,9 +2,9 @@
 <%- include("../partials/head.ejs") %>
 <body>
   <%- include("../partials/header.ejs") %>
-
-  <main class= "new-project">
-    <h2>New Project</h2>
+  <div class="project-bg">
+    <main class= "new-project">
+    <h2>Add a Project to the Log</h2>
     <form class="project-info" action="/projects" method="POST">
 
     
@@ -57,7 +57,7 @@
 
       </fieldset>
       
-    <fieldset>
+    <fieldset class="additional-details">
       <legend>Additional Details</legend>
       <label> Square Feet:  
         <input type="text" name="sqFt">
@@ -88,5 +88,6 @@
     </form>
 
 
-  </main>
+    </main>
+  </div>
 </body>

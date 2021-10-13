@@ -1,70 +1,69 @@
-
-<% 
-<!-- https://www.sitepoint.com/sort-an-array-of-objects-in-javascript/ -->
-function compare(a, b) {
-  const project1 = a.jobId
-  const project2 = b.jobId
-  return project1>project2? 1 : -1
-}
-projects.sort(compare)
-%>
 <%- include("../partials/head.ejs") %>
 
-
+<% 
+  <!-- https://www.sitepoint.com/sort-an-array-of-objects-in-javascript/ -->
+  function compare(a, b) {
+    const project1 = a.jobId
+    const project2 = b.jobId
+    return project1>project2? 1 : -1
+  }
+  projects.sort(compare)
+%>
 
 
 <body>
   <%- include("../partials/header.ejs") %>
-  <main>
-  <h2>Project Log</h2>
-  
-  <table>
-    <thead>
-      <tr>
-        <th> </th>
-        <th>Project #</th>
-        <th>Project Name</th>
-        <th>Location</th>
-        <th>Stage</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% for(project of projects) { %>
-        <%
-          let {jobId, jobNum, name, stage, isActive, fullAddress} = project 
-        %>
-          
-          <tr class=<%= jobId.toString() %>>
-          <td><input type="checkbox"></td>
-          <td><%= jobId %></td>
-          <td class="name"
-            hx-get = "/projects/<%=project._id %>"
-            hx-target= "main"
-            hx-swap= "innerHTML"
-            hx-push-url= "true"
-            hx-select= "main"
-          >
-            <%= name %>
-          </td>
-
-          <td><%= fullAddress %></td>
-          <td><%= stage %></td>
-          <td><%= isActive? "Active": "Inactive" %></td>
-          <td class="options"><button class=expand-opt>...</button></td>
-        </tr>
-        
-        
-
-      <% } %>
-      <tr>
-
-      </tr>
-    </tbody>
+  <div class="project-bg">
+    <main class="index-page">
+      <h2>Project Log</h2>
     
-  </table>
-  </main>
-  
+    <table>
+      <thead>
+        <tr>
+          <th> </th>
+          <th>Project #</th>
+          <th>Project Name</th>
+          <th>Location</th>
+          <th>Stage</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(project of projects) { %>
+          <%
+            let {jobId, jobNum, name, stage, isActive, fullAddress} = project 
+          %>
+            
+            <tr class=<%= jobId.toString() %>>
+            <td><input type="checkbox"></td>
+            <td><%= jobId %></td>
+            <td class="name"
+              hx-get = "/projects/<%=project._id %>"
+              hx-target= "main"
+              hx-swap= "outerHTML"
+              hx-push-url= "true"
+              hx-select= "main"
+            >
+              <%= name %>
+            </td>
+
+            <td><%= fullAddress %></td>
+            <td><%= stage %></td>
+            <td><%= isActive? "Active": "Inactive" %></td>
+            <td class="options"><button class=expand-opt>...</button></td>
+          </tr>
+          
+          
+
+        <% } %>
+        <tr>
+
+        </tr>
+      </tbody>
+      
+    </table>
+    </main>
+  </div>
 
   
 </body>

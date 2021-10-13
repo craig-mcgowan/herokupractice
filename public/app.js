@@ -1,26 +1,20 @@
 // TODO: Inject Head & Header into Dom on Page Unload
 
 //TODO: Change Header based on Logged-in status
-function toggleHeader() {
+function toggleHomepage() {
   const path = window.location.pathname
   console.log(path)
   if (path.toString().includes("/projects")) {
     $("span.project-links").removeClass("hidden")
     $("span.login-links").addClass("hidden")
+
   } else if (path === "/") {
     $("span.project-links").addClass("hidden");
     $("span.login-links").removeClass("hidden");
   }
 }
 
-toggleHeader()
-
-
-//Change background on leaving homepage
-$("li").click(function () {
-  $(".background").css("backgroundImage", "none");
-
-})
+toggleHomepage()
 
 
 
@@ -44,6 +38,7 @@ const handleLoginError = () => {
 //Active Toggle
 
 $(".toggle-btn").click(function (e) { 
-  console.log(e.target)
-  $(e.target).toggleClass("active")
+  let checked = $("#active-checkbox").prop("checked")
+  let button = $(e.target)
+  !checked ? button.addClass("active") : button.removeClass("active")
 });

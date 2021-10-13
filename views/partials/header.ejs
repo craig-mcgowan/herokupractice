@@ -7,7 +7,7 @@
         <li class="index-link"
               hx-get = "/projects"
               hx-target= "main"
-              hx-swap= "innerHTML"
+              hx-swap="outerHTML"
               hx-push-url="true"
               hx-select="main">
           Project List
@@ -15,7 +15,7 @@
         <li class="new-link"
           hx-get = "/projects/new"
           hx-target= "main"
-          hx-swap="innerHTML"
+          hx-swap="outerHTML"
           hx-push-url="true"
           hx-select="main">
             Create Project
@@ -27,8 +27,8 @@
       <span class = "login-links">
         <li class="login-link"
           hx-get= "/user/login"
-          hx-target="main"
-          hx-swap= "innerHTML"
+          hx-target="main.homepage"
+          hx-swap="outerHTML"
           hx-push-url="true"
           hx-select="main">
           Login
@@ -36,7 +36,7 @@
         <li class="signup-link"
           hx-get= "/user/signup"
           hx-target="main"
-          hx-swap= "innerHTML"
+          hx-swap="outerHTML"
           hx-push-url="true"
           hx-select="main">
           Sign up

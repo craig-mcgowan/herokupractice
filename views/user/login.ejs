@@ -1,28 +1,29 @@
 <%- include("../partials/head.ejs") %>
 <body>
   <%- include("../partials/header.ejs") %>
-  <main>
+  <div class="background">
+    <main class= login-page>
+      <div>
+        <form class="login-form" action="/user/login" method="POST">
+          <fieldset class="login-fieldset">
+            <legend>Log in</legend>
+            <label>Organization:
+              <input type="text" name="org" required > 
+            </label>
+            <label>Username:
+              <input type="text" name="username" required >
+              <p class="invalidUsername">This user does not exist in our records. Would you like to create a user?</p> 
+            </label>
+            <label >Password:
+              <input type="password" name="password" required>
+              <p class="wrongPassword">This password does not match our records</p>
+            </label>
+            <input class="btn-login" type="submit" value="Log in">
+            
+          </fieldset>
+        </form>
 
-    <div>
-      <form class="login-form" action="/user/login" method="POST">
-      <fieldset class="login-fieldset">
-        <legend>Login</legend>
-        <label>Organization:
-          <input type="text" name="org" required > 
-        </label>
-        <label>Username:
-          <input type="text" name="username" required >
-          <p class="invalidUsername">This user does not exist in our records. Would you like to create a user?</p> 
-        </label>
-        <label >Password:
-          <input type="password" name="password" required>
-          <p class="wrongPassword">This password does not match our records</p>
-        </label>
-        <input class="btn-login" type="submit" value="Log in">
-        
-      </fieldset>
-      </form>
-
-    </div>
-  </main>
+      </div>
+    </main> 
+  </div>
 </body>

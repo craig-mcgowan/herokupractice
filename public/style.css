@@ -6,8 +6,30 @@ html, body {
   margin: 0px;
 }
 
-legend {
+legend, h2 {
   font-family: 'Source Sans Pro', sans-serif;
+}
+
+h2 {
+  font-size: 3em;
+  text-align: center;
+}
+
+div.project-bg {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#a0a0a0));
+  background-image: linear-gradient(#ffffff, #a0a0a0);
+  height: 100%;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 25%;
+}
+
+div.background {
+  background-image: url("./images/homepage-bg.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /*---------------------------------------
@@ -87,8 +109,6 @@ li {
 
 li:hover {
   background: #03070c;
-  -webkit-transition: 200ms;
-  transition: 200ms;
   cursor: pointer;
 }
 
@@ -99,14 +119,6 @@ li:hover {
 /*---------------------------------------
   Home Page
  ---------------------------------------*/
-div.background {
-  background-image: url("./images/homepage-bg.jpg");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 main.homepage {
   position: relative;
   top: 15%;
@@ -131,31 +143,54 @@ main.homepage article {
   margin: 15px;
   width: 300px;
   height: 300px;
-  background-color: rgba(128, 128, 128, 0.45);
+  background-color: rgba(138, 143, 151, 0.575);
   border-radius: 1em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 2em;
   padding: 1em;
 }
 
-table {
+main.homepage article h2 {
+  font-size: 2.5em;
+}
+
+/*---------------------------------------
+  Project Index Page
+ ---------------------------------------*/
+main.index-page {
+  padding: 0 10%;
+}
+
+main.index-page h2 {
+  font-family: 'Permanent Marker', cursive;
+  color: black;
+  position: relative;
+  left: 30%;
+  display: inline-block;
+  line-height: 0.1em;
+  border-bottom: 0.3em solid #65c6f3e1;
+}
+
+main.index-page table {
   width: 80%;
   margin-left: 1.5em;
 }
 
-thead {
+main.index-page thead {
   text-align: left;
 }
 
-td.name {
+main.index-page td.name {
   text-decoration: underline;
   color: blue;
 }
 
-td.name:hover {
+main.index-page td.name:hover {
   cursor: pointer;
   color: #03070c;
 }
@@ -167,95 +202,13 @@ main.new-project, main.edit-project {
   padding: 0 10%;
 }
 
-main.new-project fieldset, main.edit-project fieldset {
-  margin: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-main.new-project div.job-id-fields, main.edit-project div.job-id-fields {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-main.new-project div.active-btn, main.edit-project div.active-btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 3;
-      -ms-flex-positive: 3;
-          flex-grow: 3;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
 main.new-project label, main.edit-project label {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-main.new-project .toggle-btn, main.edit-project .toggle-btn {
-  border-style: solid;
-  border-radius: .5em;
-  border-color: #aaaaaa;
-  background-color: #e9e9e9;
-  color: #747474;
-  font-size: 1em;
-  font-family: 'Source Sans Pro', sans-serif;
-  -webkit-box-shadow: 1px 1px 1px black;
-          box-shadow: 1px 1px 1px black;
-  padding: 2px 10px;
-}
-
-main.new-project .toggle-btn:hover, main.edit-project .toggle-btn:hover {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  border-style: solid;
-  border-color: orange;
-  background-color: white;
-  color: black;
-  -webkit-transition-duration: 200;
-          transition-duration: 200;
-}
-
-main.new-project .active, main.edit-project .active {
-  border-style: solid;
-  color: black;
-  border-color: orange;
-  background-color: orange;
-}
-
-main.new-project .hidden-checkbox, main.edit-project .hidden-checkbox {
-  display: none;
-  visibility: hidden;
-}
-
-main.new-project fieldset.location, main.edit-project fieldset.location {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-main.new-project fieldset.location label, main.edit-project fieldset.location label {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 33%;
-          flex: 1 0 33%;
-  margin: 5px 0px;
-}
-
 main.new-project input, main.edit-project input {
   margin-left: 5px;
+  width: 300px;
 }
 
 main.new-project input[type="number"], main.edit-project input[type="number"] {
@@ -278,17 +231,276 @@ main.new-project input.submit-btn, main.edit-project input.submit-btn {
 
 main.new-project input.submit-btn:hover, main.edit-project input.submit-btn:hover {
   background-color: white;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+main.new-project fieldset, main.edit-project fieldset {
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+div.job-id-fields {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+div.active-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 3;
+      -ms-flex-positive: 3;
+          flex-grow: 3;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.toggle-btn {
+  border-style: solid;
+  border-radius: .5em;
+  border-color: #aaaaaa;
+  background-color: #e9e9e9;
+  color: #747474;
+  font-size: 1em;
+  font-family: 'Source Sans Pro', sans-serif;
+  -webkit-box-shadow: 1px 1px 1px black;
+          box-shadow: 1px 1px 1px black;
+  padding: 2px 10px;
+}
+
+.toggle-btn:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-style: solid;
+  border-color: orange;
+  background-color: white;
+  color: black;
+  -webkit-transition-duration: 200;
+          transition-duration: 200;
+}
+
+.active {
+  border-style: solid;
+  color: black;
+  border-color: orange;
+  background-color: orange;
+}
+
+.hidden-checkbox {
+  display: none;
+  visibility: hidden;
+}
+
+fieldset.location, fieldset.additional-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+fieldset.location label, fieldset.additional-details label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 33%;
+          flex: 1 0 33%;
+  margin: 5px 0px;
 }
 
 /*---------------------------------------
-  New User Page
+  Show Page
   --------------------------------------*/
-.login-form {
-  height: 15em;
-  width: 500px;
+main.show-page {
+  padding: 0 10%;
 }
 
-.login-fieldset {
+main.show-page div.title-btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main.show-page div.title-container {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 66%;
+          flex: 1 1 66%;
+}
+
+main.show-page div.btn-container {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 33%;
+          flex: 1 1 33%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+main.show-page .edit-btn, main.show-page .delete-btn {
+  border-style: solid;
+  border-radius: .5em;
+  font-size: 1em;
+  font-family: 'Source Sans Pro', sans-serif;
+  -webkit-box-shadow: 1px 1px 1px black;
+          box-shadow: 1px 1px 1px black;
+  padding: 2px 10px;
+  width: 10em;
+  margin-left: 10px;
+}
+
+main.show-page .edit-btn {
+  color: white;
+  background-color: #006ab1;
+  border-color: #006ab1;
+}
+
+main.show-page .edit-btn:hover {
+  color: #006ab1;
+  background-color: white;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+main.show-page .delete-btn {
+  color: white;
+  background-color: #cf3939;
+  border-color: #ad3d3d;
+}
+
+main.show-page .delete-btn:hover {
+  color: #cf3939;
+  background-color: white;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+main.show-page article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main.show-page article .fields {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 75%;
+          flex: 1 1 75%;
+}
+
+main.show-page fieldset {
+  margin-top: 1em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main.show-page fieldset div.job-id-fields {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 60%;
+          flex: 1 0 60%;
+}
+
+main.show-page fieldset div.job-id-fields label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 33%;
+          flex: 1 1 33%;
+}
+
+main.show-page fieldset div.active-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 40%;
+          flex: 1 0 40%;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+main.show-page fieldset div.active-btn .toggle-btn {
+  border-style: solid;
+  border-radius: .5em;
+  border-color: #aaaaaa;
+  background-color: #e9e9e9;
+  color: #747474;
+  font-size: 1em;
+  font-family: 'Source Sans Pro', sans-serif;
+  padding: 2px 10px;
+}
+
+main.show-page fieldset div.active-btn .active {
+  border-style: solid;
+  color: black;
+  border-color: orange;
+  background-color: orange;
+}
+
+main.show-page fieldset label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 33%;
+          flex: 1 1 33%;
+  margin-top: 5px;
+}
+
+main.show-page fieldset label span {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+img {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 25%;
+          flex: 1 1 25%;
+  max-width: 30%;
+  margin-left: 10px;
+}
+
+/*---------------------------------------
+  New User/Login Page
+  --------------------------------------*/
+main.login-page .login-form, main.login-page .signup-form, main.signup-page .login-form, main.signup-page .signup-form {
+  position: relative;
+  top: 5em;
+  margin: 0 30%;
+  background-color: #ffffffe8;
+  padding: 10px;
+  border-radius: 1em;
+}
+
+main.login-page .login-fieldset, main.login-page .signup-fieldset, main.signup-page .login-fieldset, main.signup-page .signup-fieldset {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -296,22 +508,43 @@ main.new-project input.submit-btn:hover, main.edit-project input.submit-btn:hove
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  border: 0 none;
 }
 
-.login-fieldset label {
+main.login-page .login-fieldset label, main.login-page .signup-fieldset label, main.signup-page .login-fieldset label, main.signup-page .signup-fieldset label {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin-top: 10px;
 }
 
-.login-fieldset label p {
+main.login-page .login-fieldset label p, main.login-page .signup-fieldset label p, main.signup-page .login-fieldset label p, main.signup-page .signup-fieldset label p {
   color: red;
   display: none;
 }
 
-input.btn-login {
-  justify-self: flex-end;
-  margin-top: 10px;
+main.login-page .login-fieldset label input, main.login-page .signup-fieldset label input, main.signup-page .login-fieldset label input, main.signup-page .signup-fieldset label input {
+  width: 70%;
+  margin-left: 5px;
+}
+
+main.login-page input.btn-login, main.login-page input.btn-signup, main.signup-page input.btn-login, main.signup-page input.btn-signup {
+  border-style: solid;
+  border-radius: .5em;
+  border-color: #f8a203;
+  background-color: #f8a203;
+  color: black;
+  font-size: 1em;
+  font-family: 'Source Sans Pro', sans-serif;
+  -webkit-box-shadow: 1px 1px 1px black;
+          box-shadow: 1px 1px 1px black;
+  padding: 2px 10px;
+  margin: 10px;
   width: 10em;
+}
+
+main.login-page input.btn-login:hover, main.login-page input.btn-signup:hover, main.signup-page input.btn-login:hover, main.signup-page input.btn-signup:hover {
+  background-color: white;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /*---------------------------------------
